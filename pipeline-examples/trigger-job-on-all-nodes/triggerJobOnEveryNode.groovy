@@ -9,8 +9,9 @@ for (int i=0; i<names.size(); ++i) {
   branches["node_" + nodeName] = {
     node(nodeName) {
       echo "Triggering on " + nodeName
-      build job: 'PayloadJob', parameters: [
-              new org.jvnet.jenkins.plugins.nodelabelparameter.NodeParameterValue("TARGET_NODE", "description", "master")]
+      //build job: 'PayloadJob', parameters: [
+      //        new org.jvnet.jenkins.plugins.nodelabelparameter.NodeParameterValue("TARGET_NODE", "description", "master")]
+      build job: 'PayloadJob', parameters: [[$class: 'NodeParameterValue', name: 'TARGET_NODE', labels: ['node2'], nodeEligibility: [$class: 'AllNodeEligibility']]]
     }
   }
 }
