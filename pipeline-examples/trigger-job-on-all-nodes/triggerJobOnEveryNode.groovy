@@ -10,7 +10,7 @@ for (int i=0; i<names.size(); ++i) {
     node(nodeName) {
       echo "Triggering on " + nodeName
       build job: 'PayloadJob', parameters: [
-              new org.jvnet.jenkins.plugins.nodelabelparameter.NodeParameterValue("TARGET_NODE", "description", nodeName)]
+              new org.jvnet.jenkins.plugins.nodelabelparameter.NodeParameterValue("TARGET_NODE", "description", "master")]
     }
   }
 }
